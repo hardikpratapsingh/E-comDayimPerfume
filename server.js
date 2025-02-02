@@ -85,10 +85,11 @@ dotenv.config()
 app.use(bodyParser.json())
 
 app.use(cors({
-  origin:true,
+  origin: ['http://localhost:5173','https://e-comm-dayim.vercel.app/'],
   methods:[ "GET","POST","PUT","DELETE"],
   credentials:true
 }))
+
 
 // Middleware
 app.use(express.json());
