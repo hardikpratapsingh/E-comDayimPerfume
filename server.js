@@ -90,6 +90,9 @@ app.use(cors({
   credentials:true
 }))
 
+// Handle preflight requests
+app.options('*', cors());  // This will handle OPTIONS requests for all routes
+
 
 // Middleware
 app.use(express.json());
