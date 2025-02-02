@@ -84,11 +84,22 @@ dotenv.config()
 
 app.use(bodyParser.json())
 
+// app.use(cors({
+//   origin:true,
+//   methods:[ "GET","POST","PUT","DELETE"],
+//   credentials:true
+// }))
+
+
+// ✅ Allow CORS for your frontend domain
 app.use(cors({
-  origin:true,
-  methods:[ "GET","POST","PUT","DELETE"],
-  credentials:true
-}))
+  origin: "https://e-comm-dayim.vercel.app",  // Allow only your frontend
+  methods: ["GET", "POST", "PUT", "DELETE"],  // Allowed HTTP methods
+  credentials: true  // Allow cookies/authentication headers
+}));
+
+// ✅ Handle Preflight Requests (OPTIONS method)
+app.options("*", cors()); 
 
 // Middleware
 app.use(express.json());
