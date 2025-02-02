@@ -85,14 +85,10 @@ dotenv.config()
 app.use(bodyParser.json())
 
 app.use(cors({
-  origin: ['http://localhost:5173','https://e-comm-dayim.vercel.app/'],
+  origin:true,
   methods:[ "GET","POST","PUT","DELETE"],
   credentials:true
 }))
-
-// Handle preflight requests
-app.options('*', cors());  // This will handle OPTIONS requests for all routes
-
 
 // Middleware
 app.use(express.json());
